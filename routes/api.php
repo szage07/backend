@@ -4,6 +4,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarouselController;
+use App\Http\Controllers\Api\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,6 @@ Route::post('/carousel',[CarouselController::class, 'store']);
 Route::put('/carousel/{id}',[CarouselController::class, 'update']); 
 Route::delete('/carousel/{id}',[CarouselController::class, 'destroy']); 
 
+
+Route::get('/user',[UserController::class, 'index']); 
+Route::delete('/user/{id}',[UserController::class, 'destroy']);
