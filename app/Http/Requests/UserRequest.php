@@ -22,13 +22,34 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name'      => 'required|string|unique:App\Models\User,name|max:255',
-            'email'     => 'required|string|unique:App\Models\User,email|max:255',
-            //regex is the password requirements
-            // 'password'  => 'required|string|min:8|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/',
-            'password'  => 'required|string|min:8',
-        ];
+        if(request()->routeIs('user.store')){
+            return [
+                'name'      => 'required|string|unique:App\Models\User,name|max:255',
+                'email'     => 'required|string|unique:App\Models\User,email|max:255',
+                //regex is the password requirements
+                // 'password'  => 'required|string|min:8|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/',
+                'password'  => 'required|string|min:8',
+            ];
+        }
+        else if(request()->routeIs('user.update')){
+            return [
+                'name'      => 'required|string|unique:App\Models\User,name|max:255'
+                
+            ];
+        }
+        else if(request()->routeIs('user.email')){
+            return [
+                'email'     => 'required|string|max:255'
+                
+            ];
+        }
+        else if(request()->routeIs('user.password')){
+            return [
+                'password'     => 'required|confirmed|string|max:255'
+                
+            ];
+        }
+       
     }
     
 }
