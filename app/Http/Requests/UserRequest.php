@@ -22,10 +22,10 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        if(request()->routeIs('user.store')){
+        if(request()->routeIs('user.login')){
             return [
-                'name'      => 'required|string|unique:App\Models\User,name|max:255',
-                'email'     => 'required|string|unique:App\Models\User,email|max:255',
+            
+                'email'     => 'required|string|email|max:255',
                 //regex is the password requirements
                 // 'password'  => 'required|string|min:8|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/',
                 'password'  => 'required|string|min:8',
