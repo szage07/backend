@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
@@ -98,5 +100,24 @@ class UserController extends Controller
         $user->delete();
 
         return  $user; 
+    }
+
+    public function image(UserRequest $request, string $id)
+    {
+        
+        $user = User::findOrFail($id);
+
+        $validated = $request->validated();
+        if(!is_null ($user->image)){
+            Storage::disk('public')->delete($user->image);
+ 
+        }
+        $user->image = $request->file('image')->storePublicly('images', 'public');
+
+       
+       
+        $user->save();
+
+        return $user;
     }
 }

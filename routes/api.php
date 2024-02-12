@@ -48,6 +48,7 @@ Route::get('/user/{id}', 'show');
 Route::put('/user/{id}', 'update')->name('user.update');
 Route::put('/user/email/{id}', 'email')->name('user.email');
 Route::put('/user/password/{id}', 'password')->name('user.password');
+Route::put('/user/image/{id}', 'image')->name('user.image');
 
 
 });

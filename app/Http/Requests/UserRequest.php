@@ -49,7 +49,12 @@ class UserRequest extends FormRequest
                 
             ];
         }
-       
+        else if(request()->routeIs('user.image')){
+            return [
+                'image'     => 'required|image|mimes:jpg,bmp,png|max:2048'
+                
+            ];
+        }
     }
     
 }
