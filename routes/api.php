@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarouselController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\UserController;
 use App\Models\User;
 
@@ -32,6 +33,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
    
     Route::post('/logout', [AuthController::class,'logout']); 
     
+    //admin api's
 Route::controller(AuthController::class)->group(function () {
     Route::get('/carousel', 'index'); 
     Route::get('/carousel/{id}', 'show');  
@@ -52,7 +54,12 @@ Route::put('/user/image/{id}', 'image')->name('user.image');
 
 
 });
-   
+
+//user specific api's
+Route:: get('/profile/show',[ProfileController::class ,'show']);
+Route::put('/profile/image',[ProfileController::class ,'image'])->name('profile.image');
+
 });
+
 
 
