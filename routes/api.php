@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarouselController;
@@ -23,6 +24,8 @@ use App\Models\User;
 
     Route::post('/login',[AuthController::class,'login'])->name('user.login'); 
     Route::post('/user',[UserController::class,'store'])->name('user.store'); 
+    //OCR API
+Route::post('/ocr', [AiController::class,'ocr'])->name('ocr.image'); ; 
 
 
 
@@ -59,6 +62,8 @@ Route::put('/user/image/{id}', 'image')->name('user.image');
 Route:: get('/profile/show',[ProfileController::class ,'show']);
 Route::put('/profile/image',[ProfileController::class ,'image'])->name('profile.image');
 
+//OCR API
+Route::post('/logout', [AuthController::class,'logout']); 
 });
 
 
