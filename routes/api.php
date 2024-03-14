@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarouselController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\StudentController;
 use App\Models\User;
 
 /*
@@ -36,3 +37,12 @@ Route::put('/user/{id}',[UserController::class, 'update'])->name('user.update');
 Route::put('/user/email/{id}',[UserController::class, 'email'])->name('user.email');
 Route::put('/user/password/{id}',[UserController::class, 'password'])->name('user.password');
 Route::post('/user',[UserController::class, 'store'])->name('user.store'); 
+
+
+//student
+Route::get('/student',[StudentController::class, 'index']); 
+Route::get('/student/{id}',[StudentController::class, 'show']);  
+Route::post('/student',[StudentController::class, 'store']); 
+Route::put('/student/{id}',[StudentController::class, 'update']); 
+Route::delete('/student/{id}',[StudentController::class, 'destroy']); 
+

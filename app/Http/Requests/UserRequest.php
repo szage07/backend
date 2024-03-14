@@ -49,6 +49,9 @@ class UserRequest extends FormRequest
                 
             ];
         }
+        else {
+            return [];
+        }
        
     }
     
