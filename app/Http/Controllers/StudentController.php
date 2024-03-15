@@ -64,4 +64,16 @@ class StudentController extends Controller
         $student->update($validated);
         return $student;
     }
+    public function email(StudentRequest $request, string $id)
+    {
+        $student = Student::findOrFail($id);
+
+        $validated = $request->validated();
+ 
+        $student->email = $validated ['email'];
+ 
+        $student->save();
+
+        return $student;
+    }
 }

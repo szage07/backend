@@ -14,12 +14,12 @@ class StudentTableSeeder extends Seeder
     {
         \App\Models\Student::factory(10)->create();
 
-        \App\Models\Student::factory()->create([
-            'first_name' => 'Test User',
-            'last_name' => 'Test User',
-            'student_id' => '123456',
-            'date_of_birth'=> '2002-09-14',
-            'email' => 'test@example.com',
-        ]);
+        // \App\Models\Student::factory()->create([
+        //     'first_name' => 'Test User',
+        //     'last_name' => 'Test User',
+        //     'student_id' => '123456',
+        //     'date_of_birth'=> '2002-09-14',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }
