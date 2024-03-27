@@ -40,6 +40,9 @@ Route::put('/user/password/{id}',[UserController::class, 'password'])->name('use
 Route::post('/user',[UserController::class, 'store'])->name('user.store'); 
 
 
+
+
+
 //student
 Route::get('/student',[StudentController::class, 'index']); 
 Route::get('/student/{id}',[StudentController::class, 'show']);  
