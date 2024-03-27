@@ -24,13 +24,11 @@ class UserRequest extends FormRequest
     {
         if(request()->routeIs('user.login')){
             return [
-                'name'      => 'required|string|unique:App\Models\User,name|max:255',
-                'email'     => 'required|string|unique:App\Models\User,email|max:255',
-                //regex is the password requirements
-                // 'password'  => 'required|string|min:8|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/',
-                'password'      => 'required|string|min:8|confirmed',
+                'email'     => 'required|string|email|max:255',
+                'password'  => 'required|string|min:8',
             ];
         }
+        
         else if(request()->routeIs('user.update')){
             return [
                 'name'      => 'required|string|unique:App\Models\User,name|max:255'
