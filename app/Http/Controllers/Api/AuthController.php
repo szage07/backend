@@ -9,7 +9,7 @@ use App\Http\Requests\carouselItemRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserRequest; 
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;

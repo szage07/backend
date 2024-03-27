@@ -55,6 +55,9 @@ class UserRequest extends FormRequest
                 
             ];
         }
+        else {
+            return []; // Add this line
+        }
     }
     
 }
