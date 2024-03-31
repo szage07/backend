@@ -47,10 +47,20 @@ class UserRequest extends FormRequest
                 
             ];
         }
+        else if(request()->routeIs('user.store')){ // replace 'user.store' with your route name
+            return [
+                'firstname'      => 'required|string|max:255',
+                'lastname'      => 'required|string|max:255',
+                'email'     => 'required|string|email|max:255|unique:App\Models\User,email',
+                'password'  => 'required|string|min:8|confirmed',
+            ];
+        }
+        
         else {
             return[];
         }
-       
+      
+        
     }
     
 }
