@@ -53,6 +53,10 @@ class UserRequest extends FormRequest
                 'lastname'      => 'required|string|max:255',
                 'email'     => 'required|string|email|max:255|unique:App\Models\User,email',
                 'password'  => 'required|string|min:8|confirmed',
+                'gender'  => 'required|string|max:255',
+                'address'  => 'required|string|max:255',
+                'birthdate'  => 'required|date',
+                
             ];
         }
         
@@ -60,7 +64,6 @@ class UserRequest extends FormRequest
             return[];
         }
       
-        
     }
-    
 }
+    

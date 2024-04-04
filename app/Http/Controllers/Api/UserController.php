@@ -28,12 +28,25 @@ class UserController extends Controller
     {
         // Retrieve the validated input data...
         $validated = $request->validated();
- 
+    
+        // Check if 'gender' is set in the validated data
+        if (!isset($validated['gender'])) {
+            // Reject the request or set a default value
+            $validated['gender'] = 'male';
+        }
+    
+        // Do the same for 'birthdate' and 'address'
+        if (!isset($validated['birthdate'])) {
+            $validated['birthdate'];
+        }
+        if (!isset($validated['address'])) {
+            $validated['address'] = 'Buenavista';
+        }
+    
         $validated ['password'] = Hash::make($validated ['password']);
         $user = User::create($validated);
         return  $user;
     }
-
     /**
      * Display the specified resource.
      */
@@ -89,6 +102,43 @@ class UserController extends Controller
         return $user;
     }
 
+    public function gender(UserRequest $request, string $id)
+{
+    $user = User::findOrFail($id);
+
+    $validated = $request->validated();
+ 
+    $user->gender = $validated ['gender']; // Corrected here
+ 
+    $user->save();
+
+    return $user;
+}
+public function birthdate(UserRequest $request, string $id)
+{
+    $user = User::findOrFail($id);
+
+    $validated = $request->validated();
+ 
+    $user->birthdate = $validated ['birthdate']; // Corrected here
+ 
+    $user->save();
+
+    return $user;
+}
+public function address(UserRequest $request, string $id)
+{
+    $user = User::findOrFail($id);
+
+    $validated = $request->validated();
+ 
+    $user->address = $validated ['address']; // Corrected here
+ 
+    $user->save();
+
+    return $user;
+}
+
     /**
      * Remove the specified resource from storage.
      */
@@ -102,3 +152,4 @@ class UserController extends Controller
         return  $user; 
     }
 }
+
