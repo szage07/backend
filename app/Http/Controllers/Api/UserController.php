@@ -27,7 +27,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         // Retrieve the validated input data...
-        $validated = $request->validated();
+        $validated = [];
     
         // Check if 'gender' is set in the validated data
         if (!isset($validated['gender'])) {
