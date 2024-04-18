@@ -24,7 +24,7 @@ use App\Models\User;
 //public api's
 
     Route::post('/login',[AuthController::class,'login'])->name('user.login'); 
-    Route::post('/user',[UserController::class,'store'])->name('user.store'); 
+    Route::post('/user',[AuthController::class,'store'])->name('user.store'); 
 
 
 

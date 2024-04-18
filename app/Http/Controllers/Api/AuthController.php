@@ -35,7 +35,30 @@ class AuthController extends Controller
 
     return $response;
    }
-
+   public function store(UserRequest $request )
+   {
+       // Retrieve the validated input data...
+       $validated = $request->all();
+   
+       // Check if 'gender' is set in the validated data
+       if (!isset($validated['gender'])) {
+           // Reject the request or set a default value
+           $validated['gender'] = 'male';
+       }
+   
+       // Do the same for 'birthdate' and 'address'
+       if (!isset($validated['birthdate'])) {
+           $validated['birthdate']= '2002-09-14';
+       }
+       if (!isset($validated['address'])) {
+           $validated['address'] = 'Buenavista';
+       }
+   
+      if (!isset($validated ['password'] ))
+       Hash::make($validated ['password']);
+       $user = User::create($validated);
+       return  $user;
+   }
      
    public function logout(Request $request)
    {
